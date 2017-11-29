@@ -73,6 +73,7 @@ $autoload['libraries'] = array();
 |
 |	$autoload['drivers'] = array('cache');
 |
+
 | You can also supply an alternative property name to be assigned in
 | the controller:
 |

@@ -53,4 +53,38 @@ class Home extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+	public function save_game(){
+		# Load helper and validation library
+		$this->load->helper('form');
+		$this->load->library('Form_validation');
+
+		$data['title'] = 'Saving the new Game';
+		$data['context'] = 'Save new game';
+
+		# setting rules for input validation
+		$this->form_validation->set_rules('title', 'Title', 'required');
+		$this->form_validation->set_rules('platform', 'Platform', 'required');
+		$this->form_validation->set_rules('developer', 'Developer', 'required');
+		$this->form_validation->set_rules('genre', 'Genre', 'required');
+		$this->form_validation->set_rules('review', 'Review', 'required');
+		$this->form_validation->set_rules('image', 'Game Image', 'required');
+		
+		if ($this->form_validation->run() === FALSE) {
+			# The validator found some problems
+			$data['response'] = "Please check the recently typed information.";
+		}else{
+			# It is fine, let's save the new game
+			$data["response"] = $this->games_model->set_game();
+			
+		}
+
+		#building the view
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/menu', $data);
+			$this->load->view('saved', $data);
+			$this->load->view('templates/footer', $data);
+
+
+	}
+
 }

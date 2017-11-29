@@ -25,5 +25,21 @@ class Games_model extends CI_Model {
 
         }
 
+        public function set_game(){
+                # Setting the array of arriving data from POST
+
+                $game_data = array(
+                        'ga_title' => $this->input->post('title'),
+                        'ga_platform' => $this->input->post('platform'),
+                        'ga_developer' => $this->input->post('developer'),
+                        'ga_genre' => $this->input->post('genre'),
+                        'ga_review' => $this->input->post('review'),
+                        'ga_image' => $this->input->post('image')
+                        );
+
+                return $this->db->insert('tbl_games', $game_data);
+
+        }
+
 }
 ?>

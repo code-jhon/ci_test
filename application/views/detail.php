@@ -1,6 +1,6 @@
 <div class="card-group">
 <div class="col-md-3">
-	<div class="card" style="width: 20rem;">
+	<div class="card" style="">
 	  <img class="card-img-top" src="<?= $image ?>"/>
 	  <div class="card-body">
 	    <p class="card-text text-center"><?= $game_title ?></p>
