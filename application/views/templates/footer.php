@@ -3,7 +3,7 @@
 	<nav aria-label="breadcrumb" role="navigation">
 	  <ol class="breadcrumb">
 	    <li class="breadcrumb-item clickable" aria-current="page" data-toggle="modal" data-target="#modal_new_game">Add a Game</li>
-	    <li class="breadcrumb-item clickable" aria-current="page" data-toggle="modal" data-target="#modal_new_about"> About</li>
+	    <li class="breadcrumb-item clickable" aria-current="page" data-toggle="modal" data-target="#modal_about"> About</li>
 	  </ol>
 	</nav>
 </div>
@@ -107,7 +107,34 @@ $inp_image = array(
     </div>
   </div>
 </div>
-
+<!-- Modal -->
+<div class="modal fade" id="modal_about" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">About this software</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<p>
+      		This software is developed by: <br>
+      		Jhon Avila<br>
+      		@javilaortiz<br>
+      		javilaortiz@gmail.com<br>
+      		and powered by Bootstrap 4<br>
+      		Using Codeigniter 3 Framework <br>
+      		Mysql database engine<br>
+      	</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="form_clear()">ok</button>
+      </div>
+      <?= form_close() ?>
+    </div>
+  </div>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

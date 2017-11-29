@@ -4,6 +4,7 @@
 	  <img class="card-img-top" src="<?= $image ?>"/>
 	  <div class="card-body">
 	    <p class="card-text text-center"><?= $game_title ?></p>
+	    <p class="card-text">Edit</p>
 	  </div>
 	</div>
 </div>
