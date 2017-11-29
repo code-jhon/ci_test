@@ -7,19 +7,29 @@ foreach ($games as $game_item) {
 	<div class="card" style="width: 10rem; margin:10px;">
 	  <img class="card-img-top" src="'.$game_item["ga_image"].'" alt="'.$game_item["ga_title"].'">
 	  <div class="card-body">
-	    <p class="card-text"><a href="index.php/detail">view more...</a></p>
+	    <p class="card-text"><a href="index.php/game/'.$game_item["ga_id"].'">more</a></p>
 	  </div>
 	</div>
 	';
 }
 ?>
-
 <div class="col-12">
 	<div class="row">
 		<?= $game_cards; ?>
 	</div>
 </div>
 
+
+<?php
+# Building form for the modal
+# Fields
+$inp_title = array(
+	'name' => 'Title',
+	'placeholder' => 'Type the game title',
+	'class' => 'form-control',
+	);
+
+?>
 <!-- Modal -->
 <div class="modal fade" id="modal_new_game" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -31,10 +41,11 @@ foreach ($games as $game_item) {
         </button>
       </div>
       <div class="modal-body">
+      <?= form_open("save_game") ?>
         <div>
         	<div class="form-group">
 			    <label for="title">Title</label>
-			    <input type="text" class="form-control" id="title" aria-describedby="" placeholder="Enter game title">
+			    <?= form_input($inp_title) ?>
 			</div>
         	<div class="form-group">
 			    <label for="platform">Platform</label>
@@ -57,10 +68,12 @@ foreach ($games as $game_item) {
 			    <input type="text" class="form-control" id="image" aria-describedby="" placeholder="Enter game Image">
 			</div>
         </div>
+      <?= form_close() ?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="form_clear()">Close</button>
-        <button type="button" class="btn btn-primary" onclick="save_movie()">Save changes</button>
+        <button type="button" class="btn btn-primary">Save (Classic)</button>
+        <button type="button" class="btn btn-primary" onclick="save_movie()">Save (Ajax)</button>
       </div>
     </div>
   </div>
